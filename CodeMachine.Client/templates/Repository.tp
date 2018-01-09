@@ -1,0 +1,13 @@
+﻿@{@Model.Name}Repository.cs
+using System;
+namespace EmergencyQualityControl.Entities
+{
+    public class @Model.Name : IEntity
+    {
+        @foreach (var col in @Model.Columns)
+        {
+        <text>public</text> <text>@col.ClrType</text> <text>@col.Name</text> <text>{ get; set; }</text>
+        }
+    }
+  
+}
