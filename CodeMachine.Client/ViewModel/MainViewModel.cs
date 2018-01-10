@@ -94,7 +94,7 @@ namespace CodeMachine.Client.ViewModel
                     {
                         this.Logs.Insert(0,new LogViewModel()
                         {
-                            Text = "ȫ�����."
+                            Text = "全部完成。"
                         });
                     });
                 });
