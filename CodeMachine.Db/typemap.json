@@ -69,40 +69,40 @@
       "provider": "Oracle.ManagedDataAccess.Client",
       "mapconfig": [
         {
-          "dbType": "bigint",
-          "clrType": "long"
-        },
-        {
-          "dbType": "bit",
-          "clrType": "bool"
+          "dbType": "char",
+          "clrType": "string"
         },
         {
           "dbType": "date",
           "clrType": "DateTime"
         },
         {
-          "dbType": "datetime",
-          "clrType": "DateTime"
+          "dbType": "long",
+          "clrType": "long"
         },
         {
-          "dbType": "decimal",
+          "dbType": "number",
           "clrType": "decimal"
         },
         {
-          "dbType": "float",
-          "clrType": "float"
+          "dbType": "nvarchar2",
+          "clrType": "string"
         },
         {
-          "dbType": "image",
-          "clrType": "byte[]"
+          "dbType": "varchar2",
+          "clrType": "string"
         },
         {
-          "dbType": "int",
+          "dbType": "intger",
           "clrType": "int"
         },
         {
-          "dbType": "numeric",
-          "clrType": "decimal"
+          "dbType": "blob",
+          "clrType": "byte[]"
+        },
+        {
+          "dbType": "clob",
+          "clrType": "string"
         },
         {
           "dbType": "varchar",
@@ -111,22 +111,6 @@
         {
           "dbType": "nvarchar",
           "clrType": "string"
-        },
-        {
-          "dbType": "nchar",
-          "clrType": "string"
-        },
-        {
-          "dbType": "char",
-          "clrType": "string"
-        },
-        {
-          "dbType": "smallint",
-          "clrType": "int"
-        },
-        {
-          "dbType": "uniqueidentifier",
-          "clrType": "Guid"
         }
       ]
     }

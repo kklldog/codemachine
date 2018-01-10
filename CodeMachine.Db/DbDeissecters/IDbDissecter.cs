@@ -6,6 +6,6 @@ namespace CodeMachine.Db.DbDeissecters
     {
         IMap TypeMap { get; set; }
 
-        Database Get();
+        Database GetDb();
     }
 }

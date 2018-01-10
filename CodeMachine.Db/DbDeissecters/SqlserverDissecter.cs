@@ -20,7 +20,7 @@ namespace CodeMachine.Db.DbDeissecters
 
         }
 
-        public Database Get()
+        public Database GetDb()
         {
             var db = new Database();
             var tableNames = GetTableNames();

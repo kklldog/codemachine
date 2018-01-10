@@ -18,7 +18,7 @@ namespace CodeMachine.Db.DbDeissecters.Tests
             var dissecter = new SqlserverDissecter(conn);
             Assert.IsNotNull(dissecter);
 
-            var db = dissecter.Get();
+            var db = dissecter.GetDb();
             Assert.IsNotNull(db);
 
             var tables = db.Tables;

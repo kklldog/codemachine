@@ -94,7 +94,7 @@ namespace CodeMachine.Client.ViewModel
                     {
                         this.Logs.Insert(0,new LogViewModel()
                         {
-                            Text = "È«²¿Íê³É."
+                            Text = "È«ï¿½ï¿½ï¿½ï¿½ï¿½."
                         });
                     });
                 });
@@ -110,7 +110,7 @@ namespace CodeMachine.Client.ViewModel
             var conn = ConfigurationManager.ConnectionStrings[connName];
             this.Connection = string.Format("Conn = {0} \r\n Provider = {1}", conn.ConnectionString, conn.ProviderName);
             var dbDissecter = Db.DbDissecter.Get(connName);
-            var db = dbDissecter.Get();
+            var db = dbDissecter.GetDb();
             _tables = new List<TableViewModel>();
             foreach (var dbTable in db.Tables)
             {

@@ -18,7 +18,7 @@ namespace CodeMachine.Db.DbDeissecters
             TypeMap = MapLoader.GetMap(DbProviders.Oracle);
         }
 
-        public Database Get()
+        public Database GetDb()
         {
             var db = new Database();
             var tableNames = GetTableNames();
@@ -37,14 +37,14 @@ namespace CodeMachine.Db.DbDeissecters
         protected List<string> GetTableNames()
         {
             var tables = new List<string>();
-            const string sql = "SELECT NAME FROM SYSOBJECTS WHERE XTYPE='U' ORDER BY NAME ";
+            const string sql = "SELECT TABLE_NAME FROM USER_TABLES ";
             using (var conn = new OracleConnection(_connection))
             {
                 var result = conn.Query(sql);
 
                 foreach (var o in result)
                 {
-                    tables.Add(o.NAME);
+                    tables.Add(o.TABLE_NAME);
                 }
             }
 
@@ -54,25 +54,22 @@ namespace CodeMachine.Db.DbDeissecters
         protected List<Column> GetColumns(string tableName)
         {
             var columns = new List<Column>();
-            const string sql = @"SELECT 
-            SYSCOLUMNS.NAME,
-            SYSTYPES.NAME 'TYPE',
-            SYSCOLUMNS.ISNULLABLE,
-            SYSCOLUMNS.LENGTH
-            FROM SYSCOLUMNS, SYSTYPES
-            WHERE SYSCOLUMNS.XUSERTYPE = SYSTYPES.XUSERTYPE AND SYSCOLUMNS.ID = OBJECT_ID('{0}')";
+            const string sql = @"select t.*,c.COMMENTS from user_tab_columns t,user_col_comments c 
+                                where t.table_name = c.table_name 
+                                    and t.column_name = c.column_name 
+                                    and t.table_name =:tableName";
             using (var conn = new OracleConnection(_connection))
             {
-                var result = conn.Query(string.Format(sql, tableName));
+                var result = conn.Query(sql, new { tableName });
 
                 foreach (var o in result)
                 {
                     var col = new Column();
-                    col.Name = o.NAME;
+                    col.Name = o.COLUMN_NAME;
+                    col.DbType = o.DATA_TYPE;
                     col.ClrType = TypeMap.Get(col.DbType).ClrType;
-                    col.DbType = o.TYPE;
-                    col.Length = o.LENGTH;
-                    col.Nullable = (int)o.ISNULLABLE == 1;
+                    col.Length = (int)o.DATA_LENGTH;
+                    col.Nullable = o.NULLABLE == "Y";
 
                     columns.Add(col);
                 }
