@@ -72,12 +72,12 @@ namespace CodeMachine.Client
 
         public static RenderService Instance
         {
-            get { return _Instance ?? new RenderService(); }
+            get { return _Instance ?? (_Instance = new RenderService()); }
         }
 
         private RenderService()
         {
-            
+
         }
     }
 }

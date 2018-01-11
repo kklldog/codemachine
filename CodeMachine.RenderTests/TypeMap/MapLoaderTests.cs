@@ -15,8 +15,8 @@ namespace CodeMachine.Db.TypeMap.Tests
         [TestMethod()]
         public void LoadTest()
         {
-            MapLoader.Load();
-            var map = MapLoader.GetMap(DbProviders.Sqlserver);
+            TypeMapLoader.Load();
+            var map = TypeMapLoader.GetMap(DbProviders.Sqlserver);
 
             Assert.IsNotNull(map);
 

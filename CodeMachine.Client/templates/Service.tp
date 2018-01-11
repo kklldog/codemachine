@@ -1,13 +1,26 @@
 ﻿@{@Model.Name}Service.cs
-using System;
-namespace EmergencyQualityControl.Entities
+using EmergencyQualityControl.Common.Service;
+using EmergencyQualityControl.Entities;
+using EmergencyQualityControl.IRepository;
+
+namespace EmergencyQualityControl.Services
 {
-    public class @Model.Name : IEntity
+    public class @{@Model.Name}Service : EntityService<@Model.Name>
     {
-        @foreach (var col in @Model.Columns)
+        private readonly I@{@Model.Name}Repository _repository = RepositoryContainer.Get<I@{@Model.Name}Repository>();
+
+      
+
+        #region singleton
+        private @{@Model.Name}Service()
         {
-        <text>public</text> <text>@col.ClrType</text> <text>@col.Name</text> <text>{ get; set; }</text>
+
         }
+        private static @{@Model.Name}Service _service;
+        public static @{@Model.Name}Service Instance
+        {
+            get { return _service ?? (_service = new @{@Model.Name}Service()); }
+        }
+        #endregion
     }
-  
 }

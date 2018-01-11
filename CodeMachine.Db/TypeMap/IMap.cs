@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using CodeMachine.Db.TypeMap;
 
-namespace CodeMachine.Db
+namespace CodeMachine.Db.TypeMap
 {
     public interface IMap
     {

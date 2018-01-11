@@ -16,10 +16,14 @@ namespace CodeMachine.Db.DbDeissecters
         public SqlserverDissecter(string connection)
         {
             _connection = connection;
-            TypeMap = MapLoader.GetMap(DbProviders.Sqlserver);
+            TypeMap = TypeMapLoader.GetMap(DbProviders.Sqlserver);
 
         }
 
+        /// <summary>
+        /// 获取数据库描述
+        /// </summary>
+        /// <returns></returns>
         public Database GetDb()
         {
             var db = new Database();
@@ -36,7 +40,11 @@ namespace CodeMachine.Db.DbDeissecters
             return db;
         }
 
-        protected List<string> GetTableNames()
+        /// <summary>
+        /// 获取表名列表
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetTableNames()
         {
             var tables = new List<string>();
             const string sql = "SELECT NAME FROM SYSOBJECTS WHERE XTYPE='U' ORDER BY NAME ";
@@ -53,7 +61,12 @@ namespace CodeMachine.Db.DbDeissecters
             return tables;
         }
 
-        protected List<Column> GetColumns(string tableName)
+        /// <summary>
+        /// 根据表面获取列
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public List<Column> GetColumns(string tableName)
         {
             var columns = new List<Column>();
             const string sql = @"SELECT 

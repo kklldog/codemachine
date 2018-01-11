@@ -52,6 +52,30 @@ namespace CodeMachine.Client.ViewModel
                 var renderService = RenderService.Instance;
                 var templates = _templates.Where(t => t.IsChecked.HasValue && t.IsChecked.Value);
                 var tables = _tables.Where(t => t.IsChecked.HasValue && t.IsChecked.Value);
+
+                if (tables.Count() == 0)
+                {
+                    DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                    {
+                        this.Logs.Insert(0, new LogViewModel()
+                        {
+                            Text = "ÇëÖÁÉÙÑ¡ÔñÒ»ÕÅ±í¡£"
+                        });
+                    });
+                    return;
+                }
+                if (templates.Count() == 0)
+                {
+                    DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                    {
+                        this.Logs.Insert(0, new LogViewModel()
+                        {
+                            Text = "ÇëÖÁÉÙÑ¡ÔñÒ»¸öÄ£°å¡£"
+                        });
+                    });
+                    return;
+                }
+
                 Task.Run(() =>
                 {
                     try
@@ -92,14 +116,15 @@ namespace CodeMachine.Client.ViewModel
                     }
                     DispatcherHelper.CheckBeginInvokeOnUI(() =>
                     {
-                        this.Logs.Insert(0,new LogViewModel()
+                        this.Logs.Insert(0, new LogViewModel()
                         {
-                            Text = "å…¨éƒ¨å®Œæˆã€‚"
+                            Text = "È«²¿Íê³É."
                         });
                     });
                 });
-               
+
             });
+
             InitData();
 
         }
@@ -107,10 +132,34 @@ namespace CodeMachine.Client.ViewModel
         private void InitData()
         {
             const string connName = "defaultConn";
-            var conn = ConfigurationManager.ConnectionStrings[connName];
-            this.Connection = string.Format("Conn = {0} \r\n Provider = {1}", conn.ConnectionString, conn.ProviderName);
-            var dbDissecter = Db.DbDissecter.Get(connName);
-            var db = dbDissecter.GetDb();
+            Database db = null;
+            try
+            {
+                var conn = ConfigurationManager.ConnectionStrings[connName];
+                this.Connection = string.Format("Conn = {0} \r\nProvider = {1}", conn.ConnectionString, conn.ProviderName);
+                var dbDissecter = Db.DbDissecter.Get(connName);
+                db = dbDissecter.GetDb();
+            }
+            catch (Exception e)
+            {
+                DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                {
+                    this.Logs.Insert(0, new LogViewModel()
+                    {
+                        Text = e.Message
+                    });
+                    this.Logs.Insert(0, new LogViewModel()
+                    {
+                        Text = e.StackTrace
+                    });
+                    this.Logs.Insert(0, new LogViewModel()
+                    {
+                        Text = "½âÎö±í½á¹¹Ê§°Ü£¬ÇëÕýÈ·ÅäÖÃÁ´½Ó×Ö·û´®¡£"
+                    });
+                });
+
+            }
+
             _tables = new List<TableViewModel>();
             foreach (var dbTable in db.Tables)
             {

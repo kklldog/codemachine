@@ -15,7 +15,7 @@ namespace CodeMachine.Db.DbDeissecters
         public OracleDissecter(string connection)
         {
             _connection = connection;
-            TypeMap = MapLoader.GetMap(DbProviders.Oracle);
+            TypeMap = TypeMapLoader.GetMap(DbProviders.Oracle);
         }
 
         public Database GetDb()
@@ -34,7 +34,7 @@ namespace CodeMachine.Db.DbDeissecters
             return db;
         }
 
-        protected List<string> GetTableNames()
+        public List<string> GetTableNames()
         {
             var tables = new List<string>();
             const string sql = "SELECT TABLE_NAME FROM USER_TABLES ";
@@ -51,7 +51,7 @@ namespace CodeMachine.Db.DbDeissecters
             return tables;
         }
 
-        protected List<Column> GetColumns(string tableName)
+        public List<Column> GetColumns(string tableName)
         {
             var columns = new List<Column>();
             const string sql = @"select t.*,c.COMMENTS from user_tab_columns t,user_col_comments c 

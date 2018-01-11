@@ -7,6 +7,11 @@ namespace CodeMachine.Db
 {
     public class DbDissecter
     {
+        /// <summary>
+        /// 根据数据库链接获取数据库解析器
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <returns></returns>
         public static IDbDissecter Get(string connectionName)
         {
             var connectionSetting = ConfigurationManager.ConnectionStrings[connectionName];

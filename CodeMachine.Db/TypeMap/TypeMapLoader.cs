@@ -5,11 +5,14 @@ using Newtonsoft.Json;
 
 namespace CodeMachine.Db.TypeMap
 {
-    public class MapLoader
+    /// <summary>
+    /// 加载类型映射的配置
+    /// </summary>
+    public class TypeMapLoader
     {
         private static Dictionary<string, IMap> _mappers = new Dictionary<string, IMap>();
 
-        static MapLoader()
+        static TypeMapLoader()
         {
             Load();
         }
@@ -52,6 +55,11 @@ namespace CodeMachine.Db.TypeMap
 
         }
 
+        /// <summary>
+        /// 获取类型映射map
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static IMap GetMap(string name)
         {
             IMap map = null;

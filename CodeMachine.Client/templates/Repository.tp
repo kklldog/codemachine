@@ -1,13 +1,13 @@
 ﻿@{@Model.Name}Repository.cs
 using System;
-namespace EmergencyQualityControl.Entities
+using EmergencyQualityControl.Common.Data;
+using EmergencyQualityControl.Entities;
+using EmergencyQualityControl.IRepository;
+
+namespace EmergencyQualityControl.Repository
 {
-    public class @Model.Name : IEntity
+    public class @{@Model.Name}Repository : BaseRepository<@Model.Name>, I@{@Model.Name}Repository
     {
-        @foreach (var col in @Model.Columns)
-        {
-        <text>public</text> <text>@col.ClrType</text> <text>@col.Name</text> <text>{ get; set; }</text>
-        }
+        
     }
-  
 }

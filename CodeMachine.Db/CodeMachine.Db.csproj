@@ -62,9 +62,9 @@
     <Compile Include="Models\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeMap\IMap.cs" />
-    <Compile Include="TypeMap\MapLoader.cs" />
     <Compile Include="TypeMap\ConfigNode.cs" />
     <Compile Include="TypeMap\Map.cs" />
+    <Compile Include="TypeMap\TypeMapLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
