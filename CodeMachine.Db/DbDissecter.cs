@@ -29,6 +29,10 @@ namespace CodeMachine.Db
             {
                 return new OracleDissecter(connectionSetting.ConnectionString);
             }
+            else if (connectionSetting.ProviderName.Equals(DbProviders.Mysql, StringComparison.CurrentCultureIgnoreCase))
+            {
+                return new MysqlDissecter(connectionSetting.ConnectionString);
+            }
             else
             {
                 throw  new Exception(string.Format("Not implement dissecter for provider:{0}", connectionSetting.ProviderName));

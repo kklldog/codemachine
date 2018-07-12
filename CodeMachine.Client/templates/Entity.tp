@@ -1,6 +1,9 @@
 ﻿@{@Model.Name}.cs
 using System;
-namespace EmergencyQualityControl.Entities
+using DapperExtensions.Mapper;
+using Medicalsystem.HighRiskGravida.Common.Data;
+
+namespace Medicalsystem.HighRiskGravida.Entity
 {
     public class @Model.Name : IEntity
     {

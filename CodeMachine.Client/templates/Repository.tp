@@ -1,10 +1,13 @@
 ﻿@{@Model.Name}Repository.cs
 using System;
-using EmergencyQualityControl.Common.Data;
-using EmergencyQualityControl.Entities;
-using EmergencyQualityControl.IRepository;
+using System.Collections.Generic;
+using System.Linq;
+using DapperExtensions;
+using Medicalsystem.HighRiskGravida.Common.Data;
+using Medicalsystem.HighRiskGravida.Entity;
+using Medicalsystem.HighRiskGravida.IRepository;
 
-namespace EmergencyQualityControl.Repository
+namespace Medicalsystem.HighRiskGravida.Repository
 {
     public class @{@Model.Name}Repository : BaseRepository<@Model.Name>, I@{@Model.Name}Repository
     {

@@ -1,9 +1,9 @@
 ﻿@{@Model.Name}Service.cs
-using EmergencyQualityControl.Common.Service;
-using EmergencyQualityControl.Entities;
-using EmergencyQualityControl.IRepository;
+using Medicalsystem.HighRiskGravida.Common.Security;
+using Medicalsystem.HighRiskGravida.Entity;
+using Medicalsystem.HighRiskGravida.IRepository;
 
-namespace EmergencyQualityControl.Services
+namespace Medicalsystem.HighRiskGravida.Service
 {
     public class @{@Model.Name}Service : EntityService<@Model.Name>
     {

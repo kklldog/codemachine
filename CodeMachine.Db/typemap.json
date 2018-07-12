@@ -113,6 +113,63 @@
           "clrType": "string"
         }
       ]
+    },
+    {
+      "provider": "MySql.Data.MySqlClient",
+      "mapconfig": [
+        {
+          "dbType": "char",
+          "clrType": "string"
+        },
+        {
+          "dbType": "date",
+          "clrType": "DateTime"
+        },
+        {
+          "dbType": "datetime",
+          "clrType": "DateTime"
+        },
+        {
+          "dbType": "long",
+          "clrType": "long"
+        },
+        {
+          "dbType": "number",
+          "clrType": "decimal"
+        },
+        {
+          "dbType": "nvarchar2",
+          "clrType": "string"
+        },
+        {
+          "dbType": "varchar2",
+          "clrType": "string"
+        },
+        {
+          "dbType": "intger",
+          "clrType": "int"
+        },
+        {
+          "dbType": "int",
+          "clrType": "int"
+        },
+        {
+          "dbType": "blob",
+          "clrType": "byte[]"
+        },
+        {
+          "dbType": "clob",
+          "clrType": "string"
+        },
+        {
+          "dbType": "varchar",
+          "clrType": "string"
+        },
+        {
+          "dbType": "nvarchar",
+          "clrType": "string"
+        }
+      ]
     }
   ]
 }

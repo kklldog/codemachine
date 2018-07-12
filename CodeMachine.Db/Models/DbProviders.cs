@@ -5,5 +5,8 @@
         public const string Sqlserver = "System.Data.SqlClient";
 
         public const string Oracle = "Oracle.ManagedDataAccess.Client";
+
+        public const string Mysql = "MySql.Data.MySqlClient";
+
     }
 }

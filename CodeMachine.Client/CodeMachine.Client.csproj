@@ -131,6 +131,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="templates\IRepository.tp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="templates\Service.tp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
