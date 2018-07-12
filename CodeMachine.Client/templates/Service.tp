@@ -1,25 +1,25 @@
-﻿@{@Model.Name}Service.cs
+﻿@{@Model._ToCamel}Service.cs
 using Medicalsystem.HighRiskGravida.Common.Security;
 using Medicalsystem.HighRiskGravida.Entity;
 using Medicalsystem.HighRiskGravida.IRepository;
 
 namespace Medicalsystem.HighRiskGravida.Service
 {
-    public class @{@Model.Name}Service : EntityService<@Model.Name>
+    public class @{@Model._ToCamel}Service : EntityService<@Model._ToCamel>
     {
-        private readonly I@{@Model.Name}Repository _repository = RepositoryContainer.Get<I@{@Model.Name}Repository>();
+        private readonly I@{@Model._ToCamel}Repository _repository = RepositoryContainer.Get<I@{@Model._ToCamel}Repository>();
 
       
 
         #region singleton
-        private @{@Model.Name}Service()
+        private @{@Model._ToCamel}Service()
         {
 
         }
-        private static @{@Model.Name}Service _service;
-        public static @{@Model.Name}Service Instance
+        private static @{@Model._ToCamel}Service _service;
+        public static @{@Model._ToCamel}Service Instance
         {
-            get { return _service ?? (_service = new @{@Model.Name}Service()); }
+            get { return _service ?? (_service = new @{@Model._ToCamel}Service()); }
         }
         #endregion
     }

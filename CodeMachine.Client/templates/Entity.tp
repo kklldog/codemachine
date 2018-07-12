@@ -1,15 +1,24 @@
-﻿@{@Model.Name}.cs
+﻿@{@Model._ToCamel}.cs
 using System;
 using DapperExtensions.Mapper;
 using Medicalsystem.HighRiskGravida.Common.Data;
 
 namespace Medicalsystem.HighRiskGravida.Entity
 {
-    public class @Model.Name : IEntity
+    public class @Model._ToCamel : IEntity
     {
         @foreach (var col in @Model.Columns)
         {
         <text>public</text> <text>@col.ClrType</text> <text>@col.Name</text> <text>{ get; set; }</text>
+        }
+    }
+
+	public class @{@Model._ToCamel}Mapper : ClassMapper<@{@Model._ToCamel}>
+    {
+        public @{@Model._ToCamel}Mapper()
+        {
+            Table("@{@Model.Name}");
+            AutoMap();
         }
     }
   

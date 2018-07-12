@@ -1,11 +1,11 @@
-﻿I@{@Model.Name}Repository.cs
+﻿I@{@Model._ToCamel}Repository.cs
 using System;
 using Medicalsystem.HighRiskGravida.Common.Data;
 using Medicalsystem.HighRiskGravida.Entity;
 
 namespace Medicalsystem.HighRiskGravida.IRepository
 {
-    public interface I@{@Model.Name}Repository:IRepository<@Model.Name>
+    public interface I@{@Model._ToCamel}Repository:IRepository<@Model._ToCamel>
     {
     }
 }

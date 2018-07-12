@@ -4,6 +4,8 @@
     {
         public string Name { get; set; }
 
+        public string _ToCamel => Util._ToCamel(Name);
+
         public string DbType { get; set; }
 
         public string ClrType { get; set; }

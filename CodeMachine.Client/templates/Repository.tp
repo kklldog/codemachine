@@ -1,4 +1,4 @@
-﻿@{@Model.Name}Repository.cs
+﻿@{@Model._ToCamel}Repository.cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using Medicalsystem.HighRiskGravida.IRepository;
 
 namespace Medicalsystem.HighRiskGravida.Repository
 {
-    public class @{@Model.Name}Repository : BaseRepository<@Model.Name>, I@{@Model.Name}Repository
+    public class @{@Model._ToCamel}Repository : BaseRepository<@Model._ToCamel>, I@{@Model._ToCamel}Repository
     {
         
     }
